@@ -7,6 +7,7 @@
 #-----------------------------------------------------------------------------
 
 # Global Variables ###########################################################
+
 row = 4  # east-west coordinate reference on map
 col = 4  # north-south coordinate reference on map
 # simplified map of 15th century BCE Mesopotamia
