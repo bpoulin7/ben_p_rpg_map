@@ -9,10 +9,10 @@ added - cardinal direction options for movement()
 fixed - movement so player can not walk off "map"
 
 v2.0
-Name: RPG: Dawn of Civilization
-updated - game's name
-*add - change log
-*add - a dictionary to hold map-tile information (add description strings)
-*fix - how room descriptions print in the game
-*add - another dictionary (for a character or object)
-*add - empty inventory list
+added - dictionary for map tiles with descriptions
+added - dictionary of civilizations
+added - dictionary of map objects
+added - dictionary of inventory items
+added - inventory as null list
+added - list of actions printed before input
+added - weighted chance of finding map objects after moving
