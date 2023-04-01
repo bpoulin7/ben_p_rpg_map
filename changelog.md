@@ -9,6 +9,7 @@ added - cardinal direction options for movement()
 fixed - movement so player can not walk off "map"
 
 v2.0
+Name: Dawn of Civilization
 added - dictionary for map tiles with descriptions
 added - dictionary of civilizations
 added - dictionary of map objects
@@ -16,3 +17,20 @@ added - dictionary of inventory items
 added - inventory as null list
 added - list of actions printed before input
 added - weighted chance of finding map objects after moving
+
+v2.1
+added - simple starting message
+added - line spaces between text in console
+added - placeholder text for enemy/ally interaction
+
+v3.0
+added - external map file
+added - game option to open map
+moved - map tile, object, and item dictionaries to individual modules
+
+todo:
+ - remove brackets and quotation marks from objects and items
+ - have interactions with allies and enemies
+ - make traversing wasteland more difficult
+ - account for invalid input when asking to quit/add to inventory
+ - have ability to win game
