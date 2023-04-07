@@ -1,7 +1,7 @@
 #-----------------------------------------------------------------------------
 # Created by Ben P
-# Date: 31/3/2023
-# version 3
+# Date: 6/4/2023
+# version 4.0
 #-----------------------------------------------------------------------------
 """A simple map movement game set in Ancient Mesopotamia."""
 #-----------------------------------------------------------------------------
@@ -26,6 +26,7 @@ inventory = []
 actions = ["travel", "inventory", "map", "quit"]
 valid_directions = ["north", "south", "east", "west"]
 dir_abb = ["n", "s", "e", "w"]
+found_object = "empty"
 
 
 # Functions ##################################################################
@@ -63,8 +64,14 @@ def movement():
                 col = col + 1
         elif direction_input == "west" or direction_input == "w":
             if col == 0:
-                print("You have reached the edge of the map.")
-                stopped = True
+                if row !=4:
+                    print("You have reached the edge of the map.")
+                    stopped = True
+                elif row == 4:
+                    print("Congratulations! You made it back to Egypt.")
+                    print("You have won the game.")
+                    stopped = True
+                    quit()
             elif col > 0:
                 col = col - 1
     elif (direction_input.lower() == "quit" or
@@ -97,10 +104,7 @@ def movement():
                                                  k = 1))
                     if found_item != ["empty"]:
                         print(f"There is {found_item} in the chest.")
-                        inv_add = input("Add to inventory? ")
-                        if inv_add.lower() == "yes" or inv_add.lower() == "y":
-                            print(f"{found_item} added to inventory")
-                            inventory.append(found_item)
+                        add_to_inv(found_item)
                     else:
                         print("The chest was empty!")
                 elif found_object == ["enemy"]:
@@ -118,12 +122,35 @@ def movement():
                   + maptiles.map_tiles[current_location]["desc"])
 
 
+def add_to_inv(founditem):
+    """Function asking whether to add a found item to inventory."""
+    try:
+        inv_add = input("Add to inventory? ").lower()
+        if inv_add == "yes" or inv_add == "y":
+            print(f"{founditem} added to inventory")
+            inventory.append(founditem)
+        elif inv_add != "no" and inv_add != "n":
+            print("Invalid input!")
+            add_to_inv(founditem)
+    except:
+        print("Impressive")
+        print("I didn't think it was possible for there to be any errors here")
+    else:
+        print("Phew! No exceptions.")
+    finally:
+        print("Item successfully added to inventory.")
+
+
 def quitgame():
     """Function for leaving game that asks for confirmation."""
     confirm_quit = input("Are you sure you want to quit? ").lower()
     if confirm_quit == "yes" or confirm_quit == "y":
         print("Leaving game...")
         quit()
+    elif confirm_quit != "no" and confirm_quit != "n":
+        print("Invalid input!")
+        quitgame()
+
 
 # Main #######################################################################
 print("Welcome to the Dawn of Civilization!")

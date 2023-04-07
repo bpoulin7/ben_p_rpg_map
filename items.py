@@ -2,6 +2,9 @@
 
 items = {
     # things to put in inventory
+    "empty" : {
+        "desc" : "null item"
+    },
     "sword" : {
         "desc" : "a blade for combat"
     },
